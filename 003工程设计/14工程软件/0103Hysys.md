@@ -1,8 +1,7 @@
-# Hysys学习记录
+## 01. 基本设置
 
-
-## 基本设置
 ### Integrator 的设置
+
 快捷键 ctrl+I 进入 Integrator 界面；
 > General
 
@@ -28,14 +27,17 @@ Reduce recycle efficiency for small timesteps
 
 Close component material and energy balances
 
-
-
 ## 储罐氮封案例
+
 ### 1. 物料物性
 
 ### 2. 切换状态
+
 #### 切换动态
+
 面板 Dynamics >> Dynamics Mode
+
 #### 切换 P/F 模式
+
 面板 Flowsheet/Modify  右上角的选项里选择 Dynamic P/F Specs
 
