@@ -120,3 +120,12 @@ BREAK 或者 BR；命令之后选择好要打断的对象后一定要用选项 F
 
 输入命令 MIRRTEXT，把值从 1 改为 0。
 
+### 10. autolisp 打开后自动消失
+
+VLIDE.DSK 出错。
+
+C:\Users\Administrator\AppData\Roaming\Autodesk\AutoCAD 2012 - Simplified Chinese\R18.2\chs\VLIDE.DSK 文件，关闭 CAD，接着改为「VLIDE.DSK.BAK」，重启 CAD 和 VLIDE 即可。
+
+### 11. CAD 打出来颜色很淡
+
+后来发现 CAD 打印样式表无法选择 .ctb 样式（带颜色的），输入 convertpstyles，转换打印样式 stb 为 ctb，就可以选择了。
