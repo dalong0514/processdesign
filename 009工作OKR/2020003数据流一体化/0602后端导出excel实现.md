@@ -182,3 +182,60 @@ ajax 请求无法打开自动导出 excel 文件的弹出框，必须跳到 url 
 
 [PhpOffice/PhpSpreadsheet读取和写入Excel - 简书](https://www.jianshu.com/p/10e1f047f2bd)
 
+## 源码
+
+```php
+//$spreadsheet = new Spreadsheet();
+$inputFileName = 'gs2ws.xlsx';
+$reader = new \PhpOffice\PhpSpreadsheet\Reader\Xlsx();
+$spreadsheet = $reader->load($inputFileName);
+    
+$spreadsheet->getActiveSheet()
+->fromArray(
+    $insertData,  // The data to set
+    NULL,        // Array values with this value will not be set
+    'D15'         // Top left coordinate of the worksheet range where
+                 //    we want to set these values (default is A1)
+);
+
+$writer = new Xlsx($spreadsheet);
+//$writer->save('hello.xlsx');
+    
+// 输出，添加对应的 header 头部
+header('Content-Type:application/vnd.ms-excel');
+header('Content-Disposition:attachment;filename="gs2ws.xlsx"');
+header('Cache-Control:max-age=0');
+$writer->save('php://output');
+exit();
+```
+
+放到父类里去：
+
+```php
+/**
+ * 导出excel
+ */
+protected static function newExcel($file, $data, $startCell)
+{
+    $inputFileName = $file;
+    $reader = new ReadXlsx();
+    $spreadsheet = $reader->load($inputFileName);
+
+    $spreadsheet->getActiveSheet()->fromArray($data, NULL, $startCell);
+
+    $writer = new Xlsx($spreadsheet);
+
+    // 输出，添加对应的 header 头部
+    header("Content-Type:application/vnd.ms-excel");
+    header("Content-Disposition:attachment;filename={$file}");
+    header("Cache-Control:max-age=0");
+    $writer->save("php://output");
+    exit();
+}
+```
+
+这样的话字需要在使用的时候调用父类的这个方法，原来的代码更改为：
+
+```php
+self::newExcel('gs2ds.xlsx', $insertData, 'D15');
+```

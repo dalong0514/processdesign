@@ -8,7 +8,7 @@
 
 搜索框里直接输入 mstsc，会跳出远程桌面的连接面板，服务器 IP 地址：192.168.1.38，用户名 titan\fengdalong，输入密码即可远程连接到服务器。
 
-```
+```·1q
 安装Hyper-V
 >Install-WindowsFeature -Name Hyper-V
 

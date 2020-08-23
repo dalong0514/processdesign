@@ -68,6 +68,3 @@ SyntaxError: /path/to/laravel-vue-admin/resources/backend/layout/components/Side
 ```
 
 经查询为 bable 没有正确配置，直接复制 vue-element-admin 中 babel.config.js 即可。
-
-
-
