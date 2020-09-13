@@ -1,5 +1,7 @@
 # 0701. Window-Server服务器
 
+服务器：192.168.1.38
+
 [Windows 10 上的 Windows 和 Linux 容器 | Microsoft Docs](https://docs.microsoft.com/zh-cn/virtualization/windowscontainers/quick-start/set-up-environment?tabs=Windows-Server)
 
 [Windows Server 2016 安装Docker - BBSMAX](https://www.bbsmax.com/A/QW5YeK7q5m/)
