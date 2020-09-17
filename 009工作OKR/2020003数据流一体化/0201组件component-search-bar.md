@@ -1,4 +1,4 @@
-# 0201component-search-bar
+# 0201. component-search-bar
 
 ## 01. 父子组件间数据的传输
 
