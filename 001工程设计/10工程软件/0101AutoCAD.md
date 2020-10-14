@@ -84,7 +84,7 @@ BREAK 或者 BR；命令之后选择好要打断的对象后一定要用选项 F
 
 安装完后要自己通过「appload」加载 2 个插件，`acettest.fas` 和 `acetuils.fas`，一看就知道这 2 个是编译后的文件。
 
-关于汉化：直接用汉化的 `acetmain` 替换掉原来的，文件路径为：``。
+关于汉化：直接用汉化的 `acetmain` 替换掉原来的，文件路径为：`C:\Users\fengdalong\AppData\Roaming\Autodesk\AutoCAD 2014\R19.1\chs\Support`。
 
 ## 02. 问题收集
 
