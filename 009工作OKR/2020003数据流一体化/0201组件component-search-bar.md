@@ -42,3 +42,4 @@ mounted() {
 this.getData();
 },
 ```
+
