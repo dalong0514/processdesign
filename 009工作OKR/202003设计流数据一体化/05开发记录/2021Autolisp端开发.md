@@ -1,4 +1,16 @@
-# Autolisp端开发记录
+## 2020-12-22
+
+开发属性块一键同步命令。
+
+参考资料：
+
+[Synchronize attributes of all blocks at once - Autodesk Community - AutoCAD](https://forums.autodesk.com/t5/autocad-forum/synchronize-attributes-of-all-blocks-at-once/td-p/2179776)
+
+[Match Attributes | Lee Mac Programming](http://lee-mac.com/matchattribs.html)
+
+[Lisp to Sync Attributes - AutoLISP, Visual LISP & DCL - AutoCAD Forums](https://www.cadtutor.net/forum/topic/26787-lisp-to-sync-attributes/)
+
+获得了关键知识：CAD 自带命令 `ATTSYNC`，做一个宏。
 
 ## 2021-02-02
 
