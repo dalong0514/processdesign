@@ -81,7 +81,7 @@ CAD 端更好解决这个问题，每次重新导出数据前先直接把原来�
     })
 ```
 
-上面的代码是逐行打印，次方法可以获取到一个所有行的数组对象。但如果只需要第一行的数据，先获取所有行的数据没必要。去找只读第一行的数据实现。
+上面的代码是逐行打印，该方法可以获取到一个所有行的数组对象。但如果只需要第一行的数据，先获取所有行的数据没必要。去找只读第一行的数据实现。
 
 这个 Stack Overflow 帖子里获取了方法：[javascript - What is the most efficient way to read only the first line of a file in Node JS? - Stack Overflow](https://stackoverflow.com/questions/28747719/what-is-the-most-efficient-way-to-read-only-the-first-line-of-a-file-in-node-js)
 
@@ -132,3 +132,32 @@ There's a built-in module almost for this case - readline. It avoids messing wit
     this.monomerNum = projectInfo.material
   }
 ```
+
+1『
+
+这种逐行读取的逻辑导致了 bug：客户算读文件第一行的数据时，改文件一直打开的，此时 CAD 导出的数据无法写入。这种情况在付宏刚、吴俊、常恃豪、谢雨东电脑上都出现了，就自己电脑上没问题。开始还以为是上传文件那个环节导致文件没关闭，最后定位到是读第一行数据时导致的。（2021-08-12）
+
+[JavaScript - 读取文件中的每一行](https://ld246.com/article/1592967793906)
+
+迭代后的代码：
+
+```js
+import fs from 'fs-extra'
+
+// refactored at 2021-08-12
+export default async (filePath) => {
+  const dataList = fs
+                    .readFileSync(filePath)
+                    .toString('UTF8')
+                    .split('\n')
+  const projectInfoStirng = dataList[0]   
+  const projectInfo =  JSON.parse(
+    projectInfoStirng.substring(projectInfoStirng.indexOf('{'))
+  )
+
+  return projectInfo
+}
+
+```
+
+』
